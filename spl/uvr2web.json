@@ -1,0 +1,27 @@
+{
+    "model": "model.xml",
+    "defaultConfiguration": "default-configuration.xml",
+    "artifactDirectory": "artifacts",
+    "generators": {
+        "copy": {
+            "exclude": [
+                ".DS_Store"
+            ]
+        },
+        "runtime": {
+            "target": "database/include/Runtime.class.php",
+            "feature": "database"
+        },
+        "collaboration": {
+            "featureOrder": [
+                "language",
+                "French",
+                "English",
+                "German"
+            ],
+            "exclude": [
+                ".DS_Store"
+            ]
+        }
+    }
+}

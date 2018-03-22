@@ -1,0 +1,6 @@
+{
+    "collaboration": {
+        "target": "database",
+        "files": "include/Loc.class.php"
+    }
+}

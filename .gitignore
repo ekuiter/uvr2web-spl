@@ -1,0 +1,11 @@
+/.git_dev
+/vendor
+/node_modules
+/spl/demo.xml
+/spl/artifacts/database/vendor
+/tmp
+/hcptemplog
+/demo
+/deploy_templog
+/deploy_spl
+/deploy_demo

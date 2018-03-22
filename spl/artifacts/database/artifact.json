@@ -1,0 +1,23 @@
+{
+    "runtime": true,
+    "copy": {
+        "directories": [
+            {
+                "source": ".",
+                "target": "database",
+                "exclude": [
+                    "include/init.inc.php"
+                ]
+            }
+        ]
+    },
+    "template": {
+        "target": "database",
+        "files": [
+            {
+                "source": "include/init.inc.php",
+                "mayCreate": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+<configuration>
+    <feature automatic="selected" manual="undefined" name="uvr2web" />
+    <feature automatic="selected" manual="undefined" name="data capture" />
+    <feature automatic="selected" manual="undefined" name="data sources" />
+    <feature automatic="unselected" manual="undefined" name="TA" />
+    <feature automatic="unselected" manual="undefined" name="UVR1611" />
+    <feature automatic="selected" manual="undefined" name="HCP module" />
+    <feature automatic="unselected" manual="undefined" name="Arduino" />
+    <feature automatic="unselected" manual="undefined" name="data pin setting" value="1" />
+    <feature automatic="unselected" manual="undefined" name="interrupt setting" value="digitalPinToInterrupt(dataPin)" />
+    <feature automatic="unselected" manual="undefined" name="additional bits setting" value="0" />
+    <feature automatic="unselected" manual="undefined" name="web settings" />
+    <feature automatic="unselected" manual="undefined" name="mac address setting" value="0x00, 0x00, 0x00, 0x00, 0x00, 0x00" />
+    <feature automatic="unselected" manual="undefined" name="server setting" value="example.com" />
+    <feature automatic="unselected" manual="undefined" name="script setting" value="http://uvr2web.example.com/upload.php" />
+    <feature automatic="unselected" manual="undefined" name="password setting" value="123456789examplepassword123456789aslongaspossible" />
+    <feature automatic="unselected" manual="undefined" name="upload interval setting" value="10000" />
+    <feature automatic="unselected" manual="undefined" name="using PC setting" />
+    <feature automatic="selected" manual="undefined" name="data transfer" />
+    <feature automatic="selected" manual="undefined" name="Bluetooth" />
+    <feature automatic="unselected" manual="undefined" name="Internet" />
+    <feature automatic="selected" manual="undefined" name="data visualization" />
+    <feature automatic="selected" manual="undefined" name="application" />
+    <feature automatic="selected" manual="undefined" name="local" />
+    <feature automatic="selected" manual="undefined" name="Windows" />
+    <feature automatic="selected" manual="undefined" name="Android" />
+    <feature automatic="selected" manual="undefined" name="server" />
+    <feature automatic="selected" manual="undefined" name="website" />
+    <feature automatic="selected" manual="undefined" name="server application" />
+    <feature automatic="selected" manual="undefined" name="database" />
+    <feature automatic="selected" manual="undefined" name="data type" />
+    <feature automatic="unselected" manual="undefined" name="compound" />
+    <feature automatic="selected" manual="undefined" name="single sensor" />
+    <feature automatic="unselected" manual="undefined" name="demo mode" />
+    <feature automatic="undefined" manual="unselected" name="HTTPS mode" />
+    <feature automatic="selected" manual="undefined" name="devices" />
+    <feature automatic="selected" manual="undefined" name="sensor" />
+    <feature automatic="unselected" manual="undefined" name="output" />
+    <feature automatic="unselected" manual="undefined" name="heat meter" />
+    <feature automatic="unselected" manual="undefined" name="speed step" />
+    <feature automatic="unselected" manual="undefined" name="API" />
+    <feature automatic="selected" manual="undefined" name="admin" />
+    <feature automatic="selected" manual="undefined" name="language" />
+    <feature automatic="undefined" manual="selected" name="German" />
+    <feature automatic="undefined" manual="selected" name="English" />
+    <feature automatic="undefined" manual="selected" name="French" />
+    <feature automatic="unselected" manual="undefined" name="backup" />
+    <feature automatic="unselected" manual="undefined" name="uninstall" />
+    <feature automatic="selected" manual="undefined" name="notifications" />
+    <feature automatic="unselected" manual="undefined" name="backup notification" />
+    <feature automatic="undefined" manual="selected" name="no upload notification" />
+    <feature automatic="undefined" manual="selected" name="trigger notification" />
+    <feature automatic="unselected" manual="undefined" name="user management" />
+    <feature automatic="selected" manual="undefined" name="branding" />
+    <feature automatic="selected" manual="undefined" name="HCP" />
+    <feature automatic="selected" manual="undefined" name="HCP database" />
+    <feature automatic="undefined" manual="selected" name="HCP website" />
+    <feature automatic="selected" manual="undefined" name="HCP Android" />
+    <feature automatic="selected" manual="undefined" name="HCP Windows" />
+    <feature automatic="unselected" manual="undefined" name="Dometic" />
+    <feature automatic="unselected" manual="undefined" name="Dometic database" />
+    <feature automatic="unselected" manual="undefined" name="Dometic website" />
+    <feature automatic="unselected" manual="undefined" name="Dometic Android" />
+    <feature automatic="unselected" manual="undefined" name="Dometic Windows" />
+    <feature automatic="unselected" manual="undefined" name="personal" />
+</configuration>

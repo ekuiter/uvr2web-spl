@@ -1,0 +1,23 @@
+{
+    "runtime": true,
+    "copy": {
+        "directories": [
+            {
+                "source": "private/single-sensor",
+                "target": "database",
+                "exclude": [
+                    "include/Installer.class.php"
+                ]
+            }
+        ]
+    },
+    "template": {
+        "files": [
+            {
+                "source": "private/single-sensor/include/Installer.class.php",
+                "target": "database/include/Installer.class.php",
+                "mayCreate": true
+            }
+        ]
+    }
+}

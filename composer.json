@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ekuiter/feature-web": "^1.0"
+    }
+}

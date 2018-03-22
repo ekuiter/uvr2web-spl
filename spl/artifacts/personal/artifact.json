@@ -1,0 +1,22 @@
+{
+    "copy": {
+        "directories": "."
+    },
+    "template": {
+        "files": [
+            {
+                "source": "../database/include/init.inc.php",
+                "target": "database/include/init.inc.php",
+                "rules": [
+                    { "assign": "brand", "to": "uvr2web" }
+                ]
+            }, {
+                "source": "../compound/include/Installer.class.php",
+                "target": "database/include/Installer.class.php",
+                "rules": [
+                    { "assign": "brand", "to": "uvr2web" }
+                ]
+            }
+        ]
+    }
+}

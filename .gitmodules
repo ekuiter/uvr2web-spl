@@ -1,0 +1,3 @@
+[submodule "uvr2web-private"]
+	path = spl/artifacts/private
+	url = git@github.com:ekuiter/uvr2web-private.git

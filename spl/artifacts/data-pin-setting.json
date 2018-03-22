@@ -1,0 +1,12 @@
+{
+    "template": {
+        "files": [
+            {
+                "source": "arduino/uvr2web/settings.h",
+                "rules": [
+                    { "assign": "dataPin", "value": "integer" }
+                ]
+            }
+        ]
+    }
+}

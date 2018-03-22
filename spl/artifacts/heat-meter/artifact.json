@@ -1,0 +1,7 @@
+{
+    "runtime": true,
+    "copy": {
+        "target": "database",
+        "directories": "."
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "feature-configurator": "^0.1.11",
+        "feature-model-viz": "^0.1.2"
+    }
+}

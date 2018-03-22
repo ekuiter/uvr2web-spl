@@ -1,0 +1,22 @@
+{
+    "copy": {
+        "directories": [
+            {
+                "source": ".",
+                "target": "arduino",
+                "exclude": [
+                    "uvr2web/settings.h"
+                ]
+            }
+        ]
+    },
+    "template": {
+        "target": "arduino",
+        "files": [
+            {
+                "source": "uvr2web/settings.h",
+                "mayCreate": true
+            }
+        ]
+    }
+}

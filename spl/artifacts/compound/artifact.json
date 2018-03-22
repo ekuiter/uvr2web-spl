@@ -1,0 +1,22 @@
+{
+    "copy": {
+        "directories": [
+            {
+                "source": ".",
+                "target": "database",
+                "exclude": [
+                    "include/Installer.class.php"
+                ]
+            }
+        ]
+    },
+    "template": {
+        "target": "database",
+        "files": [
+            {
+                "source": "include/Installer.class.php",
+                "mayCreate": true
+            }
+        ]
+    }
+}
