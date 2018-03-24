@@ -70,7 +70,6 @@ namespace Process {
   void trim(); // Datenrahmen in Bitmap schreiben
 
   // Informationen auslesen
-  void fetch_timestamp(); // Zeitstempel
   void fetch_sensor(int sensor); // Sensor
   void fetch_heat_meter(int heat_meter); // Wärmemengenzähler
   boolean fetch_output(int output); // Ausgang

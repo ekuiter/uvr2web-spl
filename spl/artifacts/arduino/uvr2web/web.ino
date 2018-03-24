@@ -19,7 +19,7 @@ namespace Web {
 
   void upload() {
     while (millis() - upload_finished < upload_interval)
-        wdt_reset();
+      wdt_reset();
     if (CONNECT(server, 80)) {
       PRINTLN("\nUpload ...");
       request = "GET ";
@@ -28,25 +28,33 @@ namespace Web {
       request += pass;
       request += "&frame={";
       
-      request += "\"sensors\":[";
-      sensors();
-      remove_comma();
-      request += "],";
+      if (sensor_number > 0) {
+        request += "\"sensors\":[";
+        sensors();
+        remove_comma();
+        request += "],";
+      }
 
-      request += "\"heat_meters\":[";
-      heat_meters();
-      remove_comma();
-      request += "],";
+      if (heat_meter_number > 0) {
+        request += "\"heat_meters\":[";
+        heat_meters();
+        remove_comma();
+        request += "],";
+      }
 
-      request += "\"outputs\":[";
-      outputs();
-      remove_comma();
-      request += "],";
+      if (output_number > 0) {
+        request += "\"outputs\":[";
+        outputs();
+        remove_comma();
+        request += "],";
+      }
 
-      request += "\"speed_steps\":[";
-      speed_steps();
-      remove_comma();
-      request += "],";
+      if (speed_step_number > 0) {
+        request += "\"speed_steps\":[";
+        speed_steps();
+        remove_comma();
+        request += "],";
+      }
 
       remove_comma();
       request += "} HTTP/1.0";
@@ -101,7 +109,6 @@ namespace Web {
   }
 
   void sensors() {
-    int sensor_number = 16;
     for (int i = 1; i <= sensor_number; i++) {
       Process::fetch_sensor(i);
       if (sensor())
@@ -152,11 +159,11 @@ namespace Web {
   }
 
   void heat_meters() {
-    Process::fetch_heat_meter(1);
-    if (heat_meter())
-      request += ",";
-    Process::fetch_heat_meter(2);
-    heat_meter();
+    for (int i = 1; i <= heat_meter_number; i++) {
+      Process::fetch_heat_meter(i);
+      if (heat_meter())
+        request += ",";
+    }
   }
 
   bool heat_meter() {
@@ -176,7 +183,7 @@ namespace Web {
   }
 
   void outputs() {
-    for (int i = 1; i <= 13; i++) {
+    for (int i = 1; i <= output_number; i++) {
       request += "{\"number\":";
       request += i;
       request += ",\"value\":";
@@ -188,16 +195,14 @@ namespace Web {
   }
 
   void speed_steps() {
-    if (speed_step(1))
-      request += ",";
-    if (speed_step(2))
-      request += ",";
-    if (speed_step(6))
-      request += ",";
-    speed_step(7);
+    for (int i = 1; i <= speed_step_number; i++) {
+      if (speed_step(i))
+        request += ",";
+    }
   }
 
-  bool speed_step(int output) {
+  bool speed_step(int i) {
+    int output = speed_step_outputs[i - 1];
     int speed_step = Process::fetch_speed_step(output);
     if (speed_step == -2 || speed_step == -1)
       return false;    

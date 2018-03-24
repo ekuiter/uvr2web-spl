@@ -1,0 +1,13 @@
+{
+    "template": {
+        "filesIfSelected": [
+            {
+                "source": "../arduino/uvr2web/settings.h",
+                "target": "arduino/uvr2web/settings.h",
+                "rules": [
+                    { "assign": "device", "to": "TFM66" }
+                ]
+            }
+        ]
+    }
+}

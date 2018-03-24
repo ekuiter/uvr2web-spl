@@ -2,7 +2,8 @@
     "template": {
         "filesIfSelected": [
             {
-                "source": "arduino/uvr2web/settings.h",
+                "source": "../arduino/uvr2web/settings.h",
+                "target": "arduino/uvr2web/settings.h",
                 "rules": [
                     { "assign": "device", "to": "UVR1611" }
                 ]

@@ -4,6 +4,11 @@
     <feature automatic="selected" manual="undefined" name="data sources" />
     <feature automatic="unselected" manual="undefined" name="TA" />
     <feature automatic="unselected" manual="undefined" name="UVR1611" />
+    <feature automatic="unselected" manual="undefined" name="UVR31" />
+    <feature automatic="unselected" manual="undefined" name="UVR42" />
+    <feature automatic="unselected" manual="undefined" name="UVR64" />
+    <feature automatic="unselected" manual="undefined" name="HZR65" />
+    <feature automatic="unselected" manual="undefined" name="TFM66" />
     <feature automatic="selected" manual="undefined" name="HCP module" />
     <feature automatic="unselected" manual="undefined" name="Arduino" />
     <feature automatic="unselected" manual="undefined" name="data pin setting" value="1" />

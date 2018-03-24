@@ -90,21 +90,15 @@ namespace Process {
     }
   }
 
-  void fetch_timestamp() {
-    timestamp.minute = data_bits[3];
-    timestamp.hour = data_bits[4] & 0x1f;
-    timestamp.day = data_bits[5];
-    timestamp.month = data_bits[6];
-    timestamp.year = data_bits[7] + 2000;
-    timestamp.summer_time = (data_bits[4] & 0x20) >> 5;
-  }
-
   void fetch_sensor(int number) {
     sensor.number = number;
     sensor.invalid = false;
     sensor.mode = -1;
+    sensor.type = TEMP;
+
+#ifdef SENSOR_WITH_TYPE
     int value;
-    number = 6 + number * 2; // Sensor 1 liegt auf Byte 8 und 9
+    number = (sensor_offset - 1) + (number - 1) * 2;
     byte sensor_low = data_bits[number];
     byte sensor_high = data_bits[number + 1];
     number = sensor_high << 8 | sensor_low;
@@ -157,6 +151,16 @@ namespace Process {
         sensor.invalid = true;
       }
     }
+#elif defined(SENSOR_WITHOUT_TYPE)
+    int value;
+    number = (sensor_offset - 1) + (number - 1) * 2;
+    byte sensor_low = data_bits[number];
+    byte sensor_high = data_bits[number + 1];
+    value = sensor_high << 8 | sensor_low;
+#else
+#error "Kein Sensortyp definiert!"
+#endif
+    
     sensor.value = value;
   }
 
@@ -206,8 +210,12 @@ namespace Process {
   }
 
   boolean fetch_output(int output) {
-    int outputs = data_bits[41] * 256 + data_bits[40];
-    return !!(outputs & (1 << (output - 1)));
+#ifdef UVR1611
+    int outputs = data_bits[output_offset] << 8 | data_bits[output_offset - 1];
+#else
+    int outputs = data_bits[output_offset - 1];
+#endif
+    return !!(outputs & (1 << (output - 1 + output_bit_offset)));
   }
 
   int fetch_speed_step(int output) {

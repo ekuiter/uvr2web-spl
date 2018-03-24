@@ -105,6 +105,17 @@ const int percentage_variance = 10;
 // ein Datenrahmen hat 64 Datenbytes
 const int byte_number = 64;
 
+// Arten von Messgeräten bei dieser Regelung
+const int sensor_number = 16;
+const int sensor_offset = 9;
+#define SENSOR_WITH_TYPE
+const int output_number = 13;
+const int output_offset = 41;
+const int output_bit_offset = 0;
+const int heat_meter_number = 2;
+const int speed_step_number = 4;
+const char speed_step_outputs[speed_step_number] = { 1, 2, 6, 7 };
+
 // die Gerätekennung eines Datenrahmens überprüfen
 boolean check_device(byte* frame) {
   if (frame[0] == 0x80 && frame[1] == 0x8f) {
@@ -116,6 +127,125 @@ boolean check_device(byte* frame) {
     checksum += frame[i];
   return frame[0] == 0x80 && frame[1] == 0x7f && // Gerätekennung
     frame[63] == checksum; // Prüfsumme
+}
+
+#elif defined(UVR16x2)
+
+// Diese Regelung scheint mehr oder weniger mit der UVR1611
+// kompatibel zu sein. Die Unterstützung ist aber experimentell.
+// Falls jemand nähere Informationen zu dieser Regelung hat,
+// teile es mir gerne mit: info@elias-kuiter.de
+
+const unsigned long pulse_width = 980; // Pulsweite scheint leicht abzuweichen
+const int percentage_variance = 10;
+const int byte_number = 64; // ?
+const int sensor_number = 16;
+const int sensor_offset = 9;
+#define SENSOR_WITH_TYPE
+const int output_number = 13;
+const int output_offset = 41;
+const int output_bit_offset = 0;
+const int heat_meter_number = 2;
+const int speed_step_number = 4;
+const char speed_step_outputs[speed_step_number] = { 1, 2, 6, 7 };
+
+boolean check_device(byte* frame) {
+  // ?
+}
+
+#elif defined(UVR31)
+
+const unsigned long pulse_width = 10000;
+const int percentage_variance = 10;
+const int byte_number = 8;
+const int sensor_number = 3;
+const int sensor_offset = 2;
+#define SENSOR_WITHOUT_TYPE
+const int output_number = 1;
+const int output_offset = 8;
+const int output_bit_offset = 5;
+const int heat_meter_number = 0;
+const int speed_step_number = 0;
+const char speed_step_outputs[0];
+
+boolean check_device(byte* frame) {
+  return frame[0] == 0x30;
+}
+
+#elif defined(UVR42)
+
+const unsigned long pulse_width = 10000;
+const int percentage_variance = 10;
+const int byte_number = 10;
+const int sensor_number = 4;
+const int sensor_offset = 2;
+#define SENSOR_WITHOUT_TYPE
+const int output_number = 2;
+const int output_offset = 10;
+const int output_bit_offset = 5;
+const int heat_meter_number = 0;
+const int speed_step_number = 0;
+const char speed_step_outputs[0];
+
+boolean check_device(byte* frame) {
+  return frame[0] == 0x10;
+}
+
+#elif defined(UVR64)
+
+const unsigned long pulse_width = 10000;
+const int percentage_variance = 10;
+const int byte_number = 14;
+const int sensor_number = 6;
+const int sensor_offset = 2;
+#define SENSOR_WITHOUT_TYPE
+const int output_number = 4;
+const int output_offset = 14;
+const int output_bit_offset = 4;
+const int heat_meter_number = 0;
+const int speed_step_number = 0;
+const char speed_step_outputs[0];
+
+boolean check_device(byte* frame) {
+  return frame[0] == 0x20;
+}
+
+#elif defined(HZR65)
+
+const unsigned long pulse_width = 10000;
+const int percentage_variance = 10;
+const int byte_number = 14;
+const int sensor_number = 6;
+const int sensor_offset = 2;
+#define SENSOR_WITHOUT_TYPE
+const int output_number = 5;
+const int output_offset = 14;
+const int output_bit_offset = 3;
+const int heat_meter_number = 0;
+const int speed_step_number = 0;
+const char speed_step_outputs[0];
+
+boolean check_device(byte* frame) {
+  return frame[0] == 0x60;
+}
+
+#elif defined(TFM66)
+
+const unsigned long pulse_width = 10000;
+const int percentage_variance = 10;
+const int byte_number = 14;
+const int sensor_number = 6;
+const int sensor_offset = 2;
+#define SENSOR_WITHOUT_TYPE
+const int output_number = 4;
+const int output_offset = 14;
+const int output_bit_offset = 4;
+const int heat_meter_number = 0;
+const int speed_step_number = 0;
+const char speed_step_outputs[0];
+
+boolean check_device(byte* frame) {
+  return frame[0] == 0x40;
 }
 
 #else

@@ -19,6 +19,32 @@
 	    </description>
 	    <feature name="UVR1611">
 	      <description>
+                16 Sensoren, 13 Ausgänge, 2 Wärmemengenzähler, 4 Drehzahlstufen
+	      </description>
+	    </feature>
+            <feature name="UVR31">
+	      <description>
+                3 Sensoren, 1 Ausgang
+	      </description>
+	    </feature>
+            <feature name="UVR42">
+	      <description>
+                4 Sensoren, 2 Ausgänge
+	      </description>
+	    </feature>
+            <feature name="UVR64">
+	      <description>
+                6 Sensoren, 4 Ausgänge
+	      </description>
+	    </feature>
+            <feature name="HZR65">
+	      <description>
+                6 Sensoren, 5 Ausgänge
+	      </description>
+	    </feature>
+            <feature name="TFM66">
+	      <description>
+                6 Sensoren, 4 Ausgänge
 	      </description>
 	    </feature>
 	  </alt>
@@ -427,6 +453,40 @@
 	    <conj>
 	      <var>heat meter</var>
 	      <var>speed step</var>
+	    </conj>
+	  </conj>
+        </conj>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <conj>
+	  <disj>
+            <var>UVR31</var>
+            <disj>
+              <var>UVR42</var>
+              <disj>
+                <var>UVR64</var>
+                <disj>
+                  <var>HZR65</var>
+                  <var>TFM66</var>
+                </disj>
+              </disj>
+            </disj>
+          </disj>
+	  <var>database</var>
+        </conj>
+        <conj>
+	  <var>sensor</var>
+	  <conj>
+	    <var>output</var>
+	    <conj>
+	      <not>
+                <var>heat meter</var>
+              </not>
+	      <not>
+                <var>speed step</var>
+              </not>
 	    </conj>
 	  </conj>
         </conj>

@@ -3,10 +3,10 @@
     <feature automatic="selected" manual="undefined" name="data capture" />
     <feature automatic="selected" manual="undefined" name="data sources" />
     <feature automatic="selected" manual="undefined" name="TA" />
-    <feature automatic="undefined" manual="selected" name="UVR1611" />
+    <feature automatic="unselected" manual="undefined" name="UVR1611" />
     <feature automatic="unselected" manual="undefined" name="UVR31" />
     <feature automatic="unselected" manual="undefined" name="UVR42" />
-    <feature automatic="unselected" manual="undefined" name="UVR64" />
+    <feature automatic="undefined" manual="selected" name="UVR64" />
     <feature automatic="unselected" manual="undefined" name="HZR65" />
     <feature automatic="unselected" manual="undefined" name="TFM66" />
     <feature automatic="unselected" manual="undefined" name="HCP module" />
@@ -41,8 +41,8 @@
     <feature automatic="selected" manual="undefined" name="devices" />
     <feature automatic="selected" manual="undefined" name="sensor" />
     <feature automatic="selected" manual="undefined" name="output" />
-    <feature automatic="selected" manual="undefined" name="heat meter" />
-    <feature automatic="selected" manual="undefined" name="speed step" />
+    <feature automatic="unselected" manual="undefined" name="heat meter" />
+    <feature automatic="unselected" manual="undefined" name="speed step" />
     <feature automatic="undefined" manual="selected" name="API" />
     <feature automatic="selected" manual="undefined" name="admin" />
     <feature automatic="selected" manual="undefined" name="language" />
