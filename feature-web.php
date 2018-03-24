@@ -2,6 +2,8 @@
 
 require_once "vendor/autoload.php";
 
+error_reporting(0);
+
 try {
 
     $featureWeb = \FeatureWeb\Core::getInstance();

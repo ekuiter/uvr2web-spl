@@ -1,6 +1,5 @@
 {
     "model": "model.xml",
-    "defaultConfiguration": "default-configuration.xml",
     "artifactDirectory": "artifacts",
     "generators": {
         "copy": {

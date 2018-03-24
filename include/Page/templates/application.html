@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>{{title}} | uvr2web</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    {{scripts}}
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary header">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>uvr2web</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h4>{{title}}</h4>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          {{nav}}
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active">
+          {{body}}
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <a href="https://uvr2web.elias-kuiter.de/?demo"
+                 class="section__circle-container__circle section__circle--big mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <i class="material-icons">language</i>
+              </a>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><a href="https://uvr2web.elias-kuiter.de/?demo">Online-Demo</a></h5>
+              <p>
+                Hier kannst du uvr2web <a href="https://uvr2web.elias-kuiter.de/?demo">online ausprobieren</a>.<br />
+                Die Administratorfunktionen sind deaktiviert.
+              </p>
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <a href="?p=download"
+                 class="section__circle-container__circle section__circle--big mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <i class="material-icons">build</i>
+              </a>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5><a href="?p=download">Konfigurieren &amp; Herunterladen</a></h5>
+              <p>
+                Du kannst frei wählen, welche Features du in uvr2web aktivieren möchtest.<br />
+                Oder du suchst dir eine vorgefertigte Variante für deine Regelung aus.
+              </p>
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--1-col mdl-cell--hide-phone"></div>
+          </section>
+        </div>
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--middle-section">
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">uvr2web</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="https://uvr2web.elias-kuiter.de/?demo">Online-Demo</a></li>
+                <li><a href="?p=download">Konfigurieren &amp; Herunterladen</a></li>
+                <li><a href="http://www.elias-kuiter.de/apps/uvr2web/troubleshooting">Troubleshooting & Feedback</a></li>
+                <li><a href="https://github.com/ekuiter/uvr2web-spl" class="github">ekuiter/uvr2web-spl</a></li>
+                <li><a href="https://github.com/ekuiter/feature-web" class="github">ekuiter/feature-web</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Ähnliche Projekte</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="https://www.ta.co.at/fernwartung/cmi/">C.M.I. Control and Monitoring Interface</a></li>
+                <li><a href="https://github.com/berwinter/uvr1611" class="github">berwinter/uvr1611</a></li>
+                <li><a href="https://github.com/martinkropf/UVR31_RF24" class="github">martinkropf/UVR31_RF24</a></li>
+                <li><a href="https://github.com/staircaseblog/uvr16x2logging" class="github">staircaseblog/uvr16x2logging</a></li>
+                <li><a href="https://github.com/Buster01/UVR2MQTT" class="github">Buster01/UVR2MQTT</a></li>
+                <li><a href="http://www.instructables.com/id/Monitoring-Geb%C3%A4udetrocknung/">Monitoring Gebäudetrocknung</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Weitere Links</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="http://www.elias-kuiter.de/">Webseite des Entwicklers</a></li>
+                <li><a href="http://www.elias-kuiter.de/apps/uvr2web">Projektseite uvr2web</a></li>
+                <li><a href="http://www.elias-kuiter.de/apps/templog">Projektseite TempLog</a></li>
+                <li><a href="http://www.elias-kuiter.de/sonstiges/produktlinien/">Produktlinien im Browser</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              &copy; 2018 Elias Kuiter
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="http://www.elias-kuiter.de/impressum">Impressum</a></li>
+              <li><a href="http://www.elias-kuiter.de/datenschutz">Datenschutz</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>

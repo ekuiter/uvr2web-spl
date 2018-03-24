@@ -5,7 +5,7 @@
 Es kann Temperaturdaten visualisieren, diese auf deinem PC oder Smartphone
 darstellen und vieles mehr. Mehr Informationen findest du auf http://uvr2web.de.
 
-Das Programm besteht aus mehreren Teilen:
+Das Programm besteht aus zwei Teilen:
 
 **Arduino-Sketch**
 

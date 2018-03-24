@@ -13,7 +13,7 @@
     <feature automatic="selected" manual="undefined" name="mac address setting" value="0x00, 0x00, 0x00, 0x00, 0x00, 0x00" />
     <feature automatic="selected" manual="undefined" name="server setting" value="example.com" />
     <feature automatic="selected" manual="undefined" name="script setting" value="http://uvr2web.example.com/upload.php" />
-    <feature automatic="selected" manual="undefined" name="password setting" value="123456789examplepassword123456789aslongaspossible" />
+    <feature automatic="selected" manual="undefined" name="password setting" value="123456789examplepassword" />
     <feature automatic="selected" manual="undefined" name="upload interval setting" value="10000" />
     <feature automatic="undefined" manual="selected" name="using PC setting" />
     <feature automatic="selected" manual="undefined" name="data transfer" />

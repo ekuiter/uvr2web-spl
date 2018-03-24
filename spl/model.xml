@@ -1,393 +1,554 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <featureModel>
-<properties/>
-<struct>
-  <and abstract="true" mandatory="true" name="uvr2web">
-    <description>
-      uvr2web is a generic software product line for retrieving sensor data and visualizing it.
-    </description>
-    <and abstract="true" mandatory="true" name="data capture">
+  <properties/>
+  <struct>
+    <and abstract="true" mandatory="true" name="uvr2web">
       <description>
-	The first step is capturing some data from a supported data source.
       </description>
-      <alt abstract="true" mandatory="true" name="data sources">
-	<description>
-	  All supported data sources for data capture.
-	</description>
-	<alt abstract="true" name="TA">
+      <and abstract="true" mandatory="true" name="data capture">
+        <description>
+          [label=Datenerfassung]
+        </description>
+        <alt abstract="true" mandatory="true" name="data sources">
 	  <description>
-	    "Technische Alternative" is a company selling heating controls.
-	    Their devices export sensor data which can be easily captured with an Arduino board.
+            [label=Datenquellen]
 	  </description>
-	  <feature name="UVR1611"/>
-	</alt>
-	<feature abstract="true" name="HCP module">
+	  <alt abstract="true" name="TA">
+	    <description>
+              [label=Technische Alternative]
+	    </description>
+	    <feature name="UVR1611">
+	      <description>
+	      </description>
+	    </feature>
+	  </alt>
+	  <feature abstract="true" name="HCP module">
+	    <description>
+              [hidden]
+	    </description>
+	  </feature>
+        </alt>
+        <and abstract="true" name="Arduino">
+          <description>
+            Die Einstellungen des Arduino-Sketches.
+            Diese kannst du auch nach dem Herunterladen noch anpassen.
+          </description>
+	  <feature mandatory="true" name="data pin setting" value="1">
+	    <description>
+              [label=Datenpin]
+              Der Arduino-Pin, an dem die Regelung angeschlossen ist.
+              Nicht alle Pins können verwendet werden, siehe attachInterrupt().
+	    </description>
+	  </feature>
+	  <feature mandatory="true" name="interrupt setting" value="digitalPinToInterrupt(dataPin)">
+	    <description>
+              [label=Interrupt]
+              Der Interrupt, der zu dem Datenpin gehört.
+              Im Normalfall genügt hier digitalPinToInterrupt().
+	    </description>
+	  </feature>
+	  <feature mandatory="true" name="additional bits setting" value="0">
+	    <description>
+              [label=zusätzliche Bits]
+              Nur anpassen, wenn der DL-Bus von anderer Hardware mitbenutzt wird.
+              In der Regel den Wert auf 0 belassen.
+	    </description>
+	  </feature>
+	  <and name="web settings">
+            <description>
+              [label=Upload-Einstellungen]
+              Die Einstellungen zum Web-Upload.
+              Diese kannst du auch nach dem Herunterladen noch anpassen.
+            </description>
+	    <feature mandatory="true" name="mac address setting" value="0x00, 0x00, 0x00, 0x00, 0x00, 0x00">
+	      <description>
+                [label=MAC-Adresse]
+                Die MAC-Adresse des Ethernet-Boards, normalerweise auf
+                dem Board aufgedruckt oder -geklebt.
+	      </description>
+	    </feature>
+	    <feature mandatory="true" name="server setting" value="example.com">
+	      <description>
+                [label=Server]
+                Der Server, an den die Daten geschickt werden sollen.
+                Hier bitte nur der Hostname (ohne www o.Ä.) oder eine IP-Adresse.
+	      </description>
+	    </feature>
+	    <feature mandatory="true" name="script setting" value="http://uvr2web.example.com/upload.php">
+	      <description>
+                [label=Upload-Skript]
+                Der Pfad zum upload.php-Skript.
+                Bitte mit http:// und eventuellen Subdomains.
+	      </description>
+	    </feature>
+	    <feature mandatory="true" name="password setting" value="123456789examplepassword">
+	      <description>
+                [label=Upload-Passwort]
+                Das Passwort, das du hier eingibst, musst du später auch
+                bei der Installation der Serversoftware eingeben.
+	      </description>
+	    </feature>
+	    <feature mandatory="true" name="upload interval setting" value="10000">
+	      <description>
+                [label=Upload-Intervall]
+                Gib hier ein, nach wie vielen Millisekunden (!) ein Upload stattfinden soll.
+	      </description>
+	    </feature>
+	  </and>
+	  <feature name="using PC setting">
+	    <description>
+              [label=am PC angeschlossen]
+              Falls dies ausgewählt ist, werden Ausgaben auf der Konsole getätigt.
+              Sollte im Produktivbetrieb ausgestellt werden.
+	    </description>
+	  </feature>
+        </and>
+      </and>
+      <alt abstract="true" mandatory="true" name="data transfer">
+        <description>
+          [hidden]
+        </description>
+        <feature abstract="true" name="Bluetooth">
 	  <description>
-	    HCP-Technology is a company selling coolers, incubators and other temperature-related hardware.
-	    uvr2web can be used with a Bluetooth module to capture temperature data inside a cooler.
+            [hidden]
 	  </description>
-	</feature>
+        </feature>
+        <feature abstract="true" name="Internet">
+	  <description>
+            [hidden]
+	  </description>
+        </feature>
       </alt>
-      <and abstract="true" name="Arduino">
-	<feature mandatory="true" name="data pin setting" value="1"/>
-	<feature mandatory="true" name="interrupt setting" value="digitalPinToInterrupt(dataPin)"/>
-	<feature mandatory="true" name="additional bits setting" value="0"/>
-	<and name="web settings">
-	  <feature mandatory="true" name="mac address setting" value="0x00, 0x00, 0x00, 0x00, 0x00, 0x00"/>
-	  <feature mandatory="true" name="server setting" value="example.com"/>
-	  <feature mandatory="true" name="script setting" value="http://uvr2web.example.com/upload.php"/>
-	  <feature mandatory="true" name="password setting" value="123456789examplepassword123456789aslongaspossible"/>
-	  <feature mandatory="true" name="upload interval setting" value="10000"/>
-	</and>
-	<feature name="using PC setting"/>
+      <and abstract="true" name="data visualization">
+        <description>
+          [label=Datenvisualisierung]
+        </description>
+        <or abstract="true" mandatory="true" name="application">
+	  <description>
+            [label=Applikation]
+	  </description>
+          <or abstract="true" name="local">
+	    <description>
+              [hidden]
+	    </description>
+	    <feature name="Windows">
+	      <description>
+                [hidden]
+	      </description>
+	    </feature>
+	    <feature name="Android">
+	      <description>
+                [hidden]
+	      </description>
+	    </feature>
+	  </or>
+	  <and abstract="true" name="server">
+	    <description>
+              [label=Server]
+	    </description>
+            <feature name="website">
+	      <description>
+                [hidden]
+	      </description>
+	    </feature>
+	    <alt mandatory="true" abstract="true" name="server application">
+	      <description>
+                [label=Server-Applikation]
+	      </description>
+	      <and name="database">
+	        <description>
+                  [label=Datenbank]
+                  Eine PHP-App, die die Daten vom Arduino entgegennimmt und darstellt.
+	        </description>
+                <alt abstract="true" mandatory="true" name="data type">
+	          <description>
+                    [hidden]
+	          </description>
+	          <feature name="compound">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+	          <feature name="single sensor">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+                </alt>
+	        <feature name="demo mode">
+	          <description>
+                    [label=Demo-Modus]
+                    Erlaubt einen Gastzugang in die Datenbank und blendet einen
+                    Link auf uvr2web.de ein.
+	          </description>
+	        </feature>
+	        <feature name="HTTPS mode">
+	          <description>
+                    [label=HTTPS-Modus]
+                    Erzwingt HTTPS. Der Upload findet weiter per HTTP statt.
+                    Nur auswählen, falls der Server tatsächlich per HTTPS erreichbar ist!
+	          </description>
+	        </feature>
+	        <and mandatory="true" name="devices">
+		  <description>
+                    [hidden]
+		  </description>
+		  <feature mandatory="true" name="sensor">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+		  <feature name="output">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+		  <feature name="heat meter">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+		  <feature name="speed step">
+	            <description>
+                      [hidden]
+	            </description>
+	          </feature>
+	        </and>
+	        <feature name="API">
+		  <description>
+                    Eine Schnittstelle für den programmgesteuerten Zugriff auf die Datenbank,
+                    erreichbar über api.php (erfordert Anmeldung).
+		  </description>
+	        </feature>
+	        <and mandatory="true" name="admin">
+		  <description>
+                    [label=Administratorfunktionen]
+                    Welche Zusatzfunktionen eingeschaltet werden sollen.
+		  </description>
+		  <or mandatory="true" name="language">
+		    <description>
+                      [label=Sprache]
+                      Diese Auswahl entscheidet darüber, welche Sprachen in uvr2web
+                      verfügbar sind. Dann kannst du die Sprache in der Datenbank auswählen.
+		    </description>
+		    <feature name="German">
+	              <description>
+                        [label=Deutsch]
+	              </description>
+	            </feature>
+		    <feature name="English">
+	              <description>
+                        [label=Englisch]
+	              </description>
+	            </feature>
+		    <feature name="French">
+	              <description>
+                        [label=Französisch]
+	              </description>
+	            </feature>
+		  </or>
+		  <feature name="backup">
+		    <description>
+                      [label=Datensicherung]
+                      Eine Funktion, um die Datenbank zu sichern.
+		    </description>
+		  </feature>
+		  <feature name="uninstall">
+		    <description>
+                      [label=Deinstallationsassistent]
+                      Eine Funktion, um die Datenbanktabellen zu löschen und
+                      uvr2web zu entfernen.
+		    </description>
+		  </feature>
+		  <or name="notifications">
+		    <description>
+                      [label=E-Mail-Benachrichtigungen]
+                      Diese Benachrichtigungen werden per E-Mail an die Empfänger versendet,
+                      die in der Datenbank konfiguriert werden. Dazu muss der E-Mail-Versand
+                      per PHP möglich sein.
+		    </description>
+		    <feature name="backup notification">
+	              <description>
+                        [label=regelmäßige Datensicherung]
+                        Erinnert regelmäßig an eine Datensicherung.
+	              </description>
+	            </feature>
+		    <feature name="no upload notification">
+	              <description>
+                        [label=Upload unterbrochen]
+                        Schickt eine Warnung, wenn für längere Zeit keine
+                        Daten mehr hochgeladen wurden.
+	              </description>
+	            </feature>
+		    <feature name="trigger notification">
+	              <description>
+                        [label=Temperatur über-/unterschritten]
+                        Schickt eine Warnung, wenn der eingestellte Sensor einen
+                        zu hohen oder geringen Messwert liefert.
+	              </description>
+	            </feature>
+		  </or>
+		  <feature name="user management">
+		    <description>
+                      [label=Benutzerverwaltung]
+                      Erlaubt es, zusätzliche Benutzer anzulegen, zu bearbeiten und zu löschen.
+		    </description>
+		  </feature>
+	        </and>
+	      </and>
+	    </alt>
+	  </and>
+        </or>
+        <alt abstract="true" mandatory="true" name="branding">
+	  <description>
+            [hidden]
+	  </description>
+	  <and abstract="true" name="HCP">
+	    <description>
+              [hidden]
+	    </description>
+            <feature name="HCP database">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="HCP website">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="HCP Android">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="HCP Windows">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+	  </and>
+	  <and abstract="true" name="Dometic">
+	    <description>
+              [hidden]
+	    </description>
+            <feature name="Dometic database">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="Dometic website">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="Dometic Android">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+            <feature name="Dometic Windows">
+              <description>
+                [hidden]
+              </description>
+            </feature>
+	  </and>
+	  <feature name="personal">
+	    <description>
+              [hidden]
+	    </description>
+	  </feature>
+        </alt>
       </and>
     </and>
-    <alt abstract="true" mandatory="true" name="data transfer">
-      <description>
-	The second step is transferring the data to an application.
-      </description>
-      <feature abstract="true" name="Bluetooth">
-	<description>
-	  The HCP module is only capable of Bluetooth data transfer.
-	</description>
-      </feature>
-      <feature abstract="true" name="Internet">
-	<description>
-	  The TA devices are connected to the Internet via an Arduino.
-	</description>
-      </feature>
-    </alt>
-    <and abstract="true" name="data visualization">
-      <description>
-	The third step is receiving, storing and visualizing the captured data.
-      </description>
-      <or abstract="true" mandatory="true" name="application">
-	<description>
-	  Some application is needed to show the captured data to the user.
-	</description>
-        <or abstract="true" name="local">
-	  <description>
-	    A way to visualize data not involving the Internet.
-	  </description>
-	  <feature name="Windows">
-	    <description>
-	      A Windows (e.g. C#) client to receive Bluetooth data.
-	    </description>
-	  </feature>
-	  <feature name="Android">
-	    <description>
-	      An Android (e.g. Java) client to receive Bluetooth data.
-	    </description>
-	  </feature>
-	</or>
-	<and abstract="true" name="server">
-	  <description>
-	    Part of the application that lives on a remote server.
-	  </description>
-          <feature name="website">
-	    <description>
-	      A frontend to create, edit and remove customers for commercial use.
-	    </description>
-	  </feature>
-	  <alt mandatory="true" abstract="true" name="server application">
-	    <description>
-	      An Internet application that retrieves data and stores it inside a database.
-	    </description>
-	    <and name="database">
-	      <description>
-		The actual database application.
-	      </description>
-              <alt abstract="true" mandatory="true" name="data type">
-	        <description>
-	          There are different types of data captured.
-	          Some features are only supported for specific data types.
-	        </description>
-	        <feature name="compound">
-	          <description>
-	            The data contains more than one value, e.g. multiple sensor values.
-	          </description>
-	        </feature>
-	        <feature name="single sensor">
-	          <description>
-	            The data contains only one scalar value.
-	          </description>
-	        </feature>
-              </alt>
-	      <feature name="demo mode"/>
-	      <feature name="HTTPS mode"/>
-	      <and mandatory="true" name="devices">
-		<description>
-		  Every type of measuring device has its own rendering mechanism.
-		  Every supported data source has sensor data, but only some provide e.g. heat meter data.
-		</description>
-		<feature mandatory="true" name="sensor"/>
-		<feature name="output"/>
-		<feature name="heat meter"/>
-		<feature name="speed step"/>
-	      </and>
-	      <feature name="API">
-		<description>
-		  There’s an API for fetching raw data, but it’s optional.
-		</description>
-	      </feature>
-	      <and mandatory="true" name="admin">
-		<description>
-		  The administration section of the database.
-		</description>
-		<or mandatory="true" name="language">
-		  <description>
-		    The user may choose a language.
-		  </description>
-		  <feature name="German"/>
-		  <feature name="English"/>
-		  <feature name="French"/>
-		</or>
-		<feature name="backup">
-		  <description>
-		    The user may back up all data.
-		  </description>
-		</feature>
-		<feature name="uninstall">
-		  <description>
-		    The user may uninstall the database application from the server.
-		  </description>
-		</feature>
-		<or name="notifications">
-		  <description>
-		    The user may enable email notifications for specific events.
-		  </description>
-		  <feature name="backup notification"/>
-		  <feature name="no upload notification"/>
-		  <feature name="trigger notification"/>
-		</or>
-		<feature name="user management">
-		  <description>
-		    The user may edit, create and remove other users.
-		  </description>
-		</feature>
-	      </and>
-	    </and>
-	  </alt>
-	</and>
-      </or>
-      <alt abstract="true" mandatory="true" name="branding">
-	<description>
-	  There are multiple variants of this software in use, each with its own branding (name, logo etc.).
-	</description>
-	<and abstract="true" name="HCP">
-	  <description>
-	    Logos etc. for HCP-Technology GmbH.
-	  </description>
-          <feature name="HCP database" />
-          <feature name="HCP website" />
-          <feature name="HCP Android" />
-          <feature name="HCP Windows" />
-	</and>
-	<and abstract="true" name="Dometic">
-	  <description>
-	    Logos etc. for Dometic WAECO International GmbH.
-	  </description>
-          <feature name="Dometic database" />
-          <feature name="Dometic website" />
-          <feature name="Dometic Android" />
-          <feature name="Dometic Windows" />
-	</and>
-	<feature name="personal">
-	  <description>
-	    Branding for personal use.
-	  </description>
-	</feature>
-      </alt>
-    </and>
-  </and>
-</struct>
-<constraints>
-  <rule>
-    <imp>
-      <var>HCP module</var>
-      <var>Bluetooth</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <conj>
+  </struct>
+  <constraints>
+    <rule>
+      <imp>
         <var>HCP module</var>
-        <var>database</var>
-      </conj>
-      <var>single sensor</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <conj>
+        <var>Bluetooth</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <conj>
+          <var>HCP module</var>
+          <var>database</var>
+        </conj>
+        <var>single sensor</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <conj>
+          <var>TA</var>
+          <var>database</var>
+        </conj>
+        <var>compound</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
         <var>TA</var>
-        <var>database</var>
-      </conj>
-      <var>compound</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <var>TA</var>
-      <var>Internet</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <var>single sensor</var>
-      <conj>
-	<var>sensor</var>
-	<conj>
-	  <not>
+        <var>Internet</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <var>single sensor</var>
+        <conj>
+	  <var>sensor</var>
+	  <conj>
+	    <not>
+	      <var>output</var>
+	    </not>
+	    <conj>
+	      <not>
+	        <var>heat meter</var>
+	      </not>
+	      <not>
+	        <var>speed step</var>
+	      </not>
+	    </conj>
+	  </conj>
+        </conj>
+      </imp>
+    </rule>  
+    <rule>
+      <imp>
+        <conj>
+	  <var>UVR1611</var>
+	  <var>database</var>
+        </conj>
+        <conj>
+	  <var>sensor</var>
+	  <conj>
 	    <var>output</var>
-	  </not>
-	  <conj>
-	    <not>
+	    <conj>
 	      <var>heat meter</var>
-	    </not>
-	    <not>
 	      <var>speed step</var>
-	    </not>
+	    </conj>
 	  </conj>
-	</conj>
-      </conj>
-    </imp>
-  </rule>  
-  <rule>
-    <imp>
-      <conj>
-	<var>UVR1611</var>
-	<var>database</var>
-      </conj>
-      <conj>
-	<var>sensor</var>
-	<conj>
-	  <var>output</var>
-	  <conj>
-	    <var>heat meter</var>
-	    <var>speed step</var>
-	  </conj>
-	</conj>
-      </conj>
-    </imp>
-  </rule>
-  <rule>
-    <eq>
-      <var>TA</var>
-      <var>Arduino</var>
-    </eq>
-  </rule>
-  <rule>
-    <imp>
-      <var>uninstall</var>
-      <var>backup</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <var>backup notification</var>
-      <var>backup</var>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <var>local</var>
-      <var>HCP module</var>
-    </imp>
-  </rule>
-  <rule>
-    <eq>
-      <var>HCP module</var>
-      <disj>
-        <var>HCP</var>
-        <var>Dometic</var>
-      </disj>
-    </eq>
-  </rule>
-  <rule>
-    <eq>
-      <var>database</var>
-      <disj>
-        <var>personal</var>
+        </conj>
+      </imp>
+    </rule>
+    <rule>
+      <eq>
+        <var>TA</var>
+        <var>Arduino</var>
+      </eq>
+    </rule>
+    <rule>
+      <imp>
+        <var>uninstall</var>
+        <var>backup</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <var>backup notification</var>
+        <var>backup</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <var>local</var>
+        <var>HCP module</var>
+      </imp>
+    </rule>
+    <rule>
+      <eq>
+        <var>HCP module</var>
         <disj>
-          <var>HCP database</var>
-          <var>Dometic database</var>
+          <var>HCP</var>
+          <var>Dometic</var>
         </disj>
-      </disj>
-    </eq>
-  </rule>
-  <rule>
-    <eq>
-      <var>Android</var>
-      <disj>
-        <var>HCP Android</var>
-        <var>Dometic Android</var>
-      </disj>
-    </eq>
-  </rule>
-  <rule>
-    <eq>
-      <var>Windows</var>
-      <disj>
-        <var>HCP Windows</var>
-        <var>Dometic Windows</var>
-      </disj>
-    </eq>
-  </rule>
-  <rule>
-    <eq>
-      <var>website</var>
-      <disj>
-        <var>HCP website</var>
-        <var>Dometic website</var>
-      </disj>
-    </eq>
-  </rule>
-  <rule>
-    <imp>
-      <var>HCP module</var>
-      <conj>
-        <not>
-          <var>demo mode</var>
-        </not>
+      </eq>
+    </rule>
+    <rule>
+      <eq>
+        <var>database</var>
+        <disj>
+          <var>personal</var>
+          <disj>
+            <var>HCP database</var>
+            <var>Dometic database</var>
+          </disj>
+        </disj>
+      </eq>
+    </rule>
+    <rule>
+      <eq>
+        <var>Android</var>
+        <disj>
+          <var>HCP Android</var>
+          <var>Dometic Android</var>
+        </disj>
+      </eq>
+    </rule>
+    <rule>
+      <eq>
+        <var>Windows</var>
+        <disj>
+          <var>HCP Windows</var>
+          <var>Dometic Windows</var>
+        </disj>
+      </eq>
+    </rule>
+    <rule>
+      <eq>
+        <var>website</var>
+        <disj>
+          <var>HCP website</var>
+          <var>Dometic website</var>
+        </disj>
+      </eq>
+    </rule>
+    <rule>
+      <imp>
+        <var>HCP module</var>
         <conj>
           <not>
-          <var>user management</var>
+            <var>demo mode</var>
           </not>
           <conj>
             <not>
-              <var>backup</var>
+              <var>user management</var>
             </not>
             <conj>
               <not>
-                <var>uninstall</var>
+                <var>backup</var>
               </not>
-              <not>
-                <var>API</var>
-              </not>
+              <conj>
+                <not>
+                  <var>uninstall</var>
+                </not>
+                <not>
+                  <var>API</var>
+                </not>
+              </conj>
             </conj>
           </conj>
         </conj>
-      </conj>
-    </imp>
-  </rule>
-  <rule>
-    <imp>
-      <var>website</var>
-      <conj>
-        <var>HCP module</var>
+      </imp>
+    </rule>
+    <rule>
+      <imp>
+        <var>website</var>
         <conj>
-          <var>database</var>
+          <var>HCP module</var>
           <conj>
-            <var>Android</var>
-            <var>Windows</var>
+            <var>database</var>
+            <conj>
+              <var>Android</var>
+              <var>Windows</var>
+            </conj>
           </conj>
         </conj>
-      </conj>
-    </imp>
-  </rule>
-</constraints>
-<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
-<comments/>
-<featureOrder userDefined="false"/>
+      </imp>
+    </rule>
+  </constraints>
+  <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+  <comments/>
+  <featureOrder userDefined="false"/>
 </featureModel>

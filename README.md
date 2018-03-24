@@ -1,4 +1,4 @@
-## uvr2web
+## uvr2web-spl
 
 ![uvr2web](https://raw.githubusercontent.com/ekuiter/uvr2web/img/uvr2web-example.png)
 

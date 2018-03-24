@@ -2,7 +2,6 @@
 /vendor
 /node_modules
 /spl/demo.xml
-/spl/artifacts/database/vendor
 /tmp
 /hcptemplog
 /demo

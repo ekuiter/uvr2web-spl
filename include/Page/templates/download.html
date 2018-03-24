@@ -1,0 +1,95 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="mdl-card mdl-cell mdl-cell--12-col index-card">
+    <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+      <h4 class="mdl-cell mdl-cell--12-col">Schnelleinstieg</h4>
+      <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <p>
+          Du möchtest eine Standardvariante von uvr2web herunterladen?
+          Kein Problem, wähle dazu einfach deine UVR-Regelung aus.
+        </p>
+        <p>
+          Die vorgefertigten Varianten enthalten eine sinnvolle Auswahl an Features. Wenn du möchtest, kannst du
+          die Features vor dem Herunterladen unten im Konfigurations-Assistent anpassen.
+        </p>
+        <p>
+          Bei Problemen schau einmal im <a href="http://www.elias-kuiter.de/apps/uvr2web/troubleshooting">Troubleshooting</a>-Bereich vorbei.
+          Dort kannst du auch gerne Feedback hinterlassen.
+        </p>
+      </div>
+      <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <h6>
+          <strong>UVR-Regelung</strong>
+        </h6>
+        <p>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="UVR1611">
+            <input type="radio" name="data-source" id="UVR1611" value="UVR1611" class="mdl-radio__button">
+            <span class="mdl-radio__label">UVR1611</span>
+          </label>
+        </p>
+        <div class="buttons mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+          <button class="export mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
+            Herunterladen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="mdl-card mdl-cell mdl-cell--12-col index-card">
+    <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+      <h4 class="mdl-cell mdl-cell--12-col">Konfigurations-Assistent</h4>
+      <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <p>
+          Hier kannst du dir eine eigene Variante von uvr2web zusammenstellen. Wähle zunächst durch Anklicken deine
+          UVR-Regelung aus. Erneutes Anklicken wählt ein Feature wieder ab. Hast du alle Features eingestellt, kannst
+          du deine Variante herunterladen.
+        </p>
+        <p>
+          Gehe mit der Maus über ein Feature, um nähere Informationen zu bekommen.
+        </p>
+      </div>
+      <div class="configurator"></div>
+      <form>
+        <input type="hidden" name="p" value="download">
+        <input type="hidden" name="configuration" id="configuration">
+        <input type="hidden" name="download" value="true">
+      </form>
+      <div class="buttons mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+        <button class="export mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
+          Herunterladen
+        </button>
+        <button class="reset mdl-button mdl-js-button mdl-js-ripple-effect">
+          Zurücksetzen
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="mdl-card mdl-cell mdl-cell--12-col index-card">
+    <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+      <h4 class="mdl-cell mdl-cell--12-col">Produktlinie</h4>
+      <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <p>
+          uvr2web ist eine sogenannte <em>Software-Produktlinie</em> - eine Familie von Programmen, die frei
+          konfigurierbar sind. Mit <em>feature-web</em> hast du die Möglichkeit, einen genaueren Einblick
+          in die Struktur und Implementierung dieser Produktlinie zu erhalten.
+        </p>
+        <p>
+          Diese Option ist eher für Produktlinien-Experten gedacht. Für einen Einstieg in Software-Produktlinien,
+          schau auf <a href="http://www.elias-kuiter.de/sonstiges/produktlinien/">meiner Webseite</a> vorbei.
+        </p>
+      </div>
+    </div>
+    <div class="mdl-card__actions">
+      <a href="feature-web.php" class="mdl-button">feature-web öffnen</a>
+    </div>
+  </div>
+</section>
+<script id="model-xml" type="text/xmldata">
+  {{model}}
+</script>​
+<script id="configuration-xml" type="text/xmldata">
+  {{configuration}}
+</script>​
