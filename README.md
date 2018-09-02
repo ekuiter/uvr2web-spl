@@ -54,3 +54,24 @@ herunterlädst und dir diese genauer anschaust.
 
 Das Changelog für die Produktlinie findest du in den Commit Messages bzw. Tags.
 Dort findest du auch Informationen zu *breaking changes* und Kompatibilität.
+
+### Software Product Line Case Study
+
+This repository contains software artifacts mentioned in our SPLC'18 paper
+[Getting Rid of Clone-And-Own: Moving to a Software Product Line for Temperature
+Monitoring](http://elias-kuiter.de/splc18-uvr2web).
+
+It contains the feature model and implementation details for the *uvr2web*
+software product line (after the extraction process). For accessing the
+artifacts before extraction, refer to [the original uvr2web
+repository](https://github.com/ekuiter/uvr2web).
+
+In the `spl/artifacts` directory, we provide implementation details for most
+features of the software product line. The feature model is available at
+`spl/model.xml`.
+
+Other repositories related to the paper are:
+[feature-model-viz](https://github.com/ekuiter/feature-model-viz),
+[feature-configurator](https://github.com/ekuiter/feature-configurator),
+[feature-php](https://github.com/ekuiter/feature-php) and
+[feature-web](https://github.com/ekuiter/feature-web).

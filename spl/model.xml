@@ -54,7 +54,7 @@
 	    </description>
 	  </feature>
         </alt>
-        <and abstract="true" name="Arduino">
+        <and name="Arduino">
           <description>
             Die Einstellungen des Arduino-Sketches.
             Diese kannst du auch nach dem Herunterladen noch anpassen.
