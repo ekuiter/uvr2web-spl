@@ -25,6 +25,12 @@ die Server-Applikation wechseln und zum Beispiel die API ein- und ausschalten.
 Für einen Einstieg in Software-Produktlinien, [klicke
 hier](http://www.elias-kuiter.de/sonstiges/produktlinien/).
 
+Das folgende Bild beschreibt unser grundsätzliches Vorgehen zum Extrahieren der
+Produktlinie. Details dazu findest du im
+[Paper](http://elias-kuiter.de/splc18-uvr2web).
+
+![Migration](./assets/migration.jpg)
+
 Dieses Repository dient als Ablageort für alles, was nötig ist, um sich eine
 maßgeschneiderte Variante von uvr2web zu bauen - es enthält selbst aber keine
 fertige Version von uvr2web. Es ist sozusagen nur der Bauplan für die Webseite
