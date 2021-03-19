@@ -22,12 +22,10 @@ Eine Software-Produktlinie dient dazu, Software zu verwalten, die
 unterschiedliche Ausführungen erlaubt. So auch uvr2web: Du kannst verschiedene
 Einstellungen am Arduino-Sketch tätigen, unterschiedliche Regelungen verwenden,
 die Server-Applikation wechseln und zum Beispiel die API ein- und ausschalten.
-Für einen Einstieg in Software-Produktlinien, [klicke
-hier](http://www.elias-kuiter.de/sonstiges/produktlinien/).
 
 Das folgende Bild beschreibt unser grundsätzliches Vorgehen zum Extrahieren der
 Produktlinie. Details dazu findest du im
-[Paper](http://elias-kuiter.de/splc18-uvr2web).
+[Paper](splc18-uvr2web.pdf).
 
 ![Migration](./assets/migration.jpg)
 
@@ -65,7 +63,7 @@ Dort findest du auch Informationen zu *breaking changes* und Kompatibilität.
 
 This repository contains software artifacts mentioned in our SPLC'18 paper
 [Getting Rid of Clone-And-Own: Moving to a Software Product Line for Temperature
-Monitoring](http://elias-kuiter.de/splc18-uvr2web).
+Monitoring](splc18-uvr2web.pdf).
 
 It contains the feature model and implementation details for the *uvr2web*
 software product line (after the extraction process). For accessing the
