@@ -18,8 +18,6 @@ abstract class Page {
             array("title" => "Übersicht", "page" => "index"),
             array("title" => "Funktionsweise", "page" => "features"),
             array("title" => "Herunterladen", "page" => "download"),
-            array("title" => "Online-Demo", "href" => "https://uvr2web.elias-kuiter.de/?demo"),
-            array("title" => "Troubleshooting", "href" => "http://www.elias-kuiter.de/apps/uvr2web/troubleshooting"),
             array("title" => "GitHub", "href" => "https://github.com/ekuiter/uvr2web-spl"),
         );
     }
