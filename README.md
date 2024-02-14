@@ -25,7 +25,7 @@ die Server-Applikation wechseln und zum Beispiel die API ein- und ausschalten.
 
 Das folgende Bild beschreibt unser grundsätzliches Vorgehen zum Extrahieren der
 Produktlinie. Details dazu findest du im
-[Paper](splc18-uvr2web.pdf).
+[Paper](splc18-uvr2web.pdf) und in den [Slides](2018-09-12-SPLC-Getting-Rid.pdf).
 
 ![Migration](./assets/migration.jpg)
 
